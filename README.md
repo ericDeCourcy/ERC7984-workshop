@@ -1,12 +1,9 @@
-# FHEVM Hardhat Template
+# ERC7984 Workshop
 
-A Hardhat-based template for developing Fully Homomorphic Encryption (FHE) enabled Solidity smart contracts using the
-FHEVM protocol by Zama.
+A Hardhat-based project for demonstrating deployments of ERC7984 to Sepolia testnet. Uses the Zama FHEVM for encrypted types. 
 
-## Quick Start
+**Forked from the [zama fhevm-hardhat-template](https://github.com/zama-ai/fhevm-hardhat-template)**
 
-For detailed instructions see:
-[FHEVM Hardhat Quick Start Tutorial](https://docs.zama.ai/protocol/solidity-guides/getting-started/quick-start-tutorial)
 
 ### Prerequisites
 
@@ -70,7 +67,7 @@ For detailed instructions see:
 ```
 fhevm-hardhat-template/
 ├── contracts/           # Smart contract source files
-│   └── FHECounter.sol   # Example FHE counter contract
+│   └── MyToken.sol      # ERC-7984 token
 ├── deploy/              # Deployment scripts
 ├── tasks/               # Hardhat custom tasks
 ├── test/                # Test files
@@ -94,6 +91,7 @@ fhevm-hardhat-template/
 - [FHEVM Hardhat Setup Guide](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup)
 - [FHEVM Testing Guide](https://docs.zama.ai/protocol/solidity-guides/development-guide/hardhat/write_test)
 - [FHEVM Hardhat Plugin](https://docs.zama.ai/protocol/solidity-guides/development-guide/hardhat)
+- [FHEVM Hardhat Quick Start Tutorial](https://docs.zama.ai/protocol/solidity-guides/getting-started/quick-start-tutorial)
 
 ## 📄 License
 
@@ -101,11 +99,10 @@ This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE]
 
 ## 🆘 Support
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/zama-ai/fhevm/issues)
-- **Documentation**: [FHEVM Docs](https://docs.zama.ai)
-- **Community**: [Zama Discord](https://discord.gg/zama)
+- **Zama fhEVM GitHub Issues**: [Report bugs or request features](https://github.com/zama-ai/fhevm/issues)
+- **Zama Documentation**: [FHEVM Docs](https://docs.zama.ai)
+- **Zama Community**: [Zama Discord](https://discord.gg/zama)
 
 ---
 
-**Built with ❤️ by the Zama team**
-# ERC7984-workshop
+**Built with ❤️ (and with gratitude to the Zama team) by Eric at OpenZeppelin**

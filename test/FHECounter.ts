@@ -25,6 +25,8 @@ describe("FHECounter", function () {
 
   before(async function () {
     const ethSigners: HardhatEthersSigner[] = await ethers.getSigners();
+    const signer_0 = await ethSigners[0].getAddress();
+    console.log(`ethSigner[0]: ` + signer_0);
     signers = { deployer: ethSigners[0], alice: ethSigners[1], bob: ethSigners[2] };
   });
 
