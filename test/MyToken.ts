@@ -1,9 +1,11 @@
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 import { ethers, fhevm } from "hardhat";
-import { FHECounter, FHECounter__factory } from "../types";
 import { expect } from "chai";
 import { FhevmType } from "@fhevm/hardhat-plugin";
 
+
+// NOTE: I am a naughty programmer, and here in this file, signer "0" is called "deployer", while signer "1" and "2" are alice and bob
+// This is DIFFERENT than within the tasks, where alice is signer "0" and bob is signer "1"
 type Signers = {
     deployer: HardhatEthersSigner;
     alice: HardhatEthersSigner;

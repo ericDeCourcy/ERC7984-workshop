@@ -20,7 +20,7 @@ This is the [Sepolia ETH PoW Faucet](https://sepolia-faucet.pk910.de/)
 
 Basically, you "mine" Sepolia ETH in the browser. Within a few minutes you should have enough to deploy your contracts. But its a good idea to have this running in the background while we do the rest of the workshop, so you have ETH at deploy time.
 
-**0.1 Sepolia ETH should be enough**
+**~0.1 Sepolia ETH should be enough**
 
 
 #### 1. Install Prerequisites
@@ -84,7 +84,7 @@ npm install
 
 You will need to get a Mnemonic and an infura API key.
 
-You can use this [**🚨INSECURE🚨 MNEMONIC GENERATOR**](https://it-tools.tech/bip39-generator) for quickly generating a Mnemonic. This Mnemonic is good for this throw-away application. Please do not store real funds on it.
+You can use this [**🚨INSECURE🚨 MNEMONIC GENERATOR**](https://it-tools.tech/bip39-generator) for quickly generating a Mnemonic. This Mnemonic is good for this throw-away application. **Please do not store real funds on it.**
 
 To get an infura api key, you can go to [this page in the metamask docs](https://docs.metamask.io/services/get-started/infura) and follow the instructions to get a free key.
 
