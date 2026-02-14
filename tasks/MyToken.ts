@@ -177,6 +177,57 @@ task("task:send-tokens", "Sends tokens from alice to bob")
     console.log(`Transfer of (${value}) tokens succeeded!`);
   });
 
+task("task:sweep-bob-tokens", "Sweeps bob's tokens to alice")
+  .addOptionalParam("address", "Optionally specify the MyToken contract address")
+  //.addParam("value", "The increment value")
+  .setAction(async function (taskArguments: TaskArguments, hre) {
+    const { ethers, deployments, fhevm } = hre;
+/*
+    const value = parseInt(taskArguments.value);
+    if (!Number.isInteger(value)) {
+      throw new Error(`Argument --value is not an integer`);
+    }
+*/
+    await fhevm.initializeCLIApi();
+
+    const MyTokenDeployment = taskArguments.address
+      ? { address: taskArguments.address }
+      : await deployments.get("MyToken");
+    console.log(`MyToken: ${MyTokenDeployment.address}`);
+
+    const signers = await ethers.getSigners();
+
+    const myTokenContract = await ethers.getContractAt("MyToken", MyTokenDeployment.address);
+
+    const encryptedCount = await myTokenContract.confidentialBalanceOf(signers[1].address);
+    if (encryptedCount === ethers.ZeroHash) {
+      return;
+    }
+    console.log(`encryptedCount: ${encryptedCount}`);
+
+    // Encrypt the value passed as argument
+    /*
+    const encryptedValue = await fhevm
+      .createEncryptedInput(MyTokenDeployment.address, signers[0].address)
+      .add64(value)
+      .encrypt();
+    */
+
+    const tx = await myTokenContract
+      .connect(signers[1])
+      ["confidentialTransfer(address,bytes32)"](signers[0], encryptedCount); 
+    console.log(`Wait for tx:${tx.hash}...`);
+
+    const receipt = await tx.wait();
+    console.log(`tx:${tx.hash} status=${receipt?.status}`);
+
+    const newEncryptedCount = await myTokenContract.confidentialBalanceOf(signers[1].address);
+    console.log("Bob's encrypted balance after transfer:", newEncryptedCount);
+
+    console.log(`Sweep of Bob's tokens succeeded!`);
+  });
+
+
 
 /**
  * Example:

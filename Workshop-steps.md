@@ -98,3 +98,63 @@ OR
 npx hardhat compile
 npx hardhat test
 ```
+
+### 5. Deploy to Sepolia
+
+Before deploying to Sepolia, **you will need Sepolia ETH to pay for gas!** Revisit step 0 to and try the faucet link to get some.
+
+To get your "hardhat account", take the first account in this list. This is derived from your `MNEMONIC` from earlier.
+```bash
+npx hardhat accounts
+```
+
+This command will deploy MyToken to Sepolia:
+```bash
+npx hardhat deploy --network sepolia
+```
+
+### 6. Send transactions with your token
+
+The token will mint 1000 confidential tokens (`1000e6` units) to the deployer EOA. In the task scripts, this EOA is called "alice".
+
+
+Because these tokens are confidential, we must "decrypt" balances to actually read them. We can do the following to get Alice's balance 
+
+```bash
+npx hardhat task:decrypt-alice-balance --network sepolia
+```
+After deployment, we can expect this to be `1000000000` (or `1000e6`)
+
+Once deployed, alice can begin sending tokens to other users. Using the "value" flag, we specify the amount. `1000000` means 1 token.
+
+```bash
+npx hardhat task:send-tokens --network sepolia --value 1000000
+```
+
+Then, bob can check his balance by decrypting it
+
+```bash
+npx hardhat task:decrypt-bob-balance --network sepolia
+```
+
+Finally, bob can sweep his entire balance and send it back to Alice
+```bash
+npx hardhat task:sweep-bob-tokens --network sepolia
+```
+
+Overall, here are your commands:
+```bash
+npx hardhat task:decrypt-alice-balance --network sepolia               //decrypts Alice's balance
+npx hardhat task:send-tokens --network sepolia --value 1000000         //sends 1000000 token units from Alice to Bob
+npx hardhat task:decrypt-bob-balance --network sepolia                 //decrypts Bob's balance
+npx hardhat task:sweep-bob-tokens --network sepolia                    //sends Bob's entire balance to Alice
+```
+
+### 7. Homework 😵
+
+Lets continue building out our token! Can you achieve the following?
+
+- [ ] Make a task that allows Bob to send a custom number of tokens to Alice
+- [ ] Make a task that allows Alice to see Bob's balance, and double it by sending the same number of tokens to him
+- [ ] Modify the MyToken contract so that anyone can see the total supply
+- [ ] Apply access control to the uncontrolled "mint" function 
