@@ -22,6 +22,8 @@ Basically, you "mine" Sepolia ETH in the browser. Within a few minutes you shoul
 
 **~0.1 Sepolia ETH should be enough**
 
+Alternativley, if you ask nicely i might send you some :)
+
 
 #### 2. Install Prerequisites
 
