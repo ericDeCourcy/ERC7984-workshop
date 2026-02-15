@@ -14,7 +14,7 @@ A Hardhat-based project for demonstrating deployments of ERC7984 to Sepolia test
 
 Here's all the steps for following along at home / during the workshop
 
-#### 0. Get some Sepolia ETH
+#### 1. Get some Sepolia ETH
 
 This is the [Sepolia ETH PoW Faucet](https://sepolia-faucet.pk910.de/)
 
@@ -23,7 +23,7 @@ Basically, you "mine" Sepolia ETH in the browser. Within a few minutes you shoul
 **~0.1 Sepolia ETH should be enough**
 
 
-#### 1. Install Prerequisites
+#### 2. Install Prerequisites
 
 First, lets make a repository on your machine and clone this repo. 
 
@@ -74,13 +74,13 @@ Node comes with npm, so if you have Node you should have npm. Check it with
 npm -v
 ```
 
-#### 2. Install Dependencies
+#### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-#### 3. Setup Environment Variable
+#### 4. Setup Environment Variable
 
 You will need to get a Mnemonic and an infura API key.
 
@@ -97,7 +97,7 @@ npx hardhat vars set INFURA_API_KEY
 > <numeric api key>
 ```
 
-#### 4. Compile and run local tests
+#### 5. Compile and run local tests
 
 ```bash
 npm run compile
@@ -111,7 +111,7 @@ npx hardhat compile
 npx hardhat test
 ```
 
-#### 5. Deploy to Sepolia
+#### 6. Deploy to Sepolia
 
 Before deploying to Sepolia, **you will need Sepolia ETH to pay for gas!** Revisit step 0 to and try the faucet link to get some.
 
@@ -125,7 +125,7 @@ This command will deploy MyToken to Sepolia:
 npx hardhat deploy --network sepolia
 ```
 
-#### 6. Send transactions with your token
+#### 7. Send transactions with your token
 
 The token will mint 1000 confidential tokens (`1000e6` units) to the deployer EOA. In the task scripts, this EOA is called "alice".
 
@@ -162,7 +162,7 @@ npx hardhat task:decrypt-bob-balance --network sepolia                 //decrypt
 npx hardhat task:sweep-bob-tokens --network sepolia                    //sends Bob's entire balance to Alice
 ```
 
-#### 7. Homework 😵
+#### 8. Homework 😵
 
 Lets continue building out our token! Can you achieve the following?
 

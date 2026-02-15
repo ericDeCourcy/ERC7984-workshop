@@ -2,10 +2,6 @@ import { FhevmType } from "@fhevm/hardhat-plugin";
 import { task } from "hardhat/config";
 import type { TaskArguments } from "hardhat/types";
 
-// TODOS
-// [ ] remove all mentions of "counter"
-// [ ] alice is signer 1 in the tests, but signer 0 here. Reconcile this
-
 /** 
  * These define the tasks you can use via `npx hardhat task:{taskName} {options} --network sepolia`.
  * They assume you have already deployed MyToken via `npx hardhat deploy --network sepolia`
